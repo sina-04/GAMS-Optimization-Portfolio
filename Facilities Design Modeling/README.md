@@ -4,9 +4,9 @@ A GAMS-based optimization model that finds the **best (x, y) location** for a ne
 
 In other words: given several places with coordinates and importance weights, it computes the location that minimizes
 
-$
+$$
 \sum_i w_i (|x - x_i| + |y - y_i|)
-$
+$$
 
 This is a classic **weighted 1-median / Weber problem** under **rectilinear (Manhattan) distance**, formulated as a **Linear Program (LP)** using standard absolute-value linearization.
 
