@@ -17,14 +17,19 @@ $$
 Subject to:
 
 - **Demand constraints** (first 3 constraints):
+
 $$
 \sum_{i \in I} a_{j,i} x_i \ge \text{rhs}_j \quad (j = c1, c2, c3)
 $$
+
 - **Capacity/limit constraints** (last 2 constraints):
+
 $$
 \sum_{i \in I} a_{j,i} x_i \le \text{rhs}_j \quad (j = c4, c5)
 $$
+
 - Nonnegativity:
+
 $$
 x_i \ge 0
 $$
