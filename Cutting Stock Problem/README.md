@@ -10,24 +10,24 @@ At a high level, the model chooses how much to use each _cutting pattern_ to mee
 
 The file `CSP.gms` defines and solves an LP of the form:
 
-$
+$$
 \min \sum_{i \in I} c_i x_i
-$
+$$
 
 Subject to:
 
 - **Demand constraints** (first 3 constraints):
-  $
+  $$
   \sum_{i \in I} a_{j,i} x_i \ge \text{rhs}_j \quad (j = c1, c2, c3)
-  $
+  $$
 - **Capacity/limit constraints** (last 2 constraints):
-  $
+  $$
   \sum_{i \in I} a_{j,i} x_i \le \text{rhs}_j \quad (j = c4, c5)
-  $
+  $$
 - Nonnegativity:
-  $
+  $$
   x_i \ge 0
-  $
+  $$
 
 **Interpretation (typical cutting stock meaning):**
 
