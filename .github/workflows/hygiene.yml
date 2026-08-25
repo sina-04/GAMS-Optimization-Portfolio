@@ -1,0 +1,30 @@
+name: Repository hygiene
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Reject generated solver output
+        run: |
+          if find . -type f \( -name '*.log' -o -name '*.lst' -o -name '*.lxi' \) -print -quit | grep -q .; then
+            echo "Generated GAMS output must not be committed."
+            exit 1
+          fi
+      - name: Validate portable paths
+        shell: python
+        run: |
+          from pathlib import Path
+
+          paths = [p.as_posix() for p in Path(".").rglob("*") if ".git" not in p.parts]
+          invalid = [p for p in paths if ":" in p or len(p) > 180]
+          assert not invalid, "Non-portable paths: " + ", ".join(invalid)
+          print(f"Validated {len(paths)} portable paths")

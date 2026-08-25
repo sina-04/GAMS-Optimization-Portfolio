@@ -1,0 +1,13 @@
+# GAMS generated output
+*.log
+*.lst
+*.lxi
+*.g00
+*.g01
+*.pf
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
